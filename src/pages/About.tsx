@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Code, Database, Github, Paintbrush } from "lucide-react";
 
 const stats = [
   { label: "Years Experience", value: "12+" },
@@ -6,11 +7,37 @@ const stats = [
   { label: "Worldwide Clients", value: "20+" }
 ];
 
-const skills = [
-  { name: "React", level: 95 },
-  { name: "TypeScript", level: 90 },
-  { name: "Node.js", level: 85 },
-  { name: "UI/UX Design", level: 80 }
+const skillCategories = [
+  {
+    title: "Frontend Development",
+    icon: <Code className="w-5 h-5" />,
+    skills: [
+      "React", "Next.js", "Angular", "Tailwind CSS", "Bootstrap",
+      "JavaScript", "TypeScript"
+    ]
+  },
+  {
+    title: "Backend Development",
+    icon: <Code className="w-5 h-5" />,
+    skills: [
+      "PHP", "Node.js", "C#", "WordPress", "Laravel"
+    ]
+  },
+  {
+    title: "Databases & Tools",
+    icon: <Database className="w-5 h-5" />,
+    skills: [
+      "SQL", "Supabase", "Sanity", "Git", "GitHub",
+      "Vercel", "Cypress"
+    ]
+  },
+  {
+    title: "Design Tools",
+    icon: <Paintbrush className="w-5 h-5" />,
+    skills: [
+      "Adobe Photoshop", "Adobe Illustrator", "Adobe InDesign"
+    ]
+  }
 ];
 
 const About = () => {
@@ -67,25 +94,36 @@ const About = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="space-y-6"
+            className="space-y-8"
           >
             <h2 className="text-2xl font-semibold">Skills & Expertise</h2>
-            <div className="space-y-4">
-              {skills.map((skill, index) => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between">
-                    <span>{skill.name}</span>
-                    <span className="text-primary">{skill.level}%</span>
+            <div className="space-y-8">
+              {skillCategories.map((category, categoryIndex) => (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: categoryIndex * 0.1 }}
+                  className="space-y-4"
+                >
+                  <div className="flex items-center gap-2 text-primary">
+                    {category.icon}
+                    <h3 className="font-semibold">{category.title}</h3>
                   </div>
-                  <div className="h-2 bg-muted rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, delay: index * 0.1 }}
-                      className="h-full bg-primary rounded-full"
-                    />
+                  <div className="flex flex-wrap gap-3">
+                    {category.skills.map((skill, skillIndex) => (
+                      <motion.div
+                        key={skill}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
+                        className="glass-card px-4 py-2 rounded-full text-sm hover:bg-primary/10 transition-colors"
+                      >
+                        {skill}
+                      </motion.div>
+                    ))}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
