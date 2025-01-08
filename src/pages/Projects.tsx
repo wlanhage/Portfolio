@@ -28,6 +28,7 @@ const Projects = () => {
   }
 
   return (
+
     <div className="min-h-screen p-8 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

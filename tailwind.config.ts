@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			scale: {
+				'110': '1.1',
+				'105': '1.05'
+			  },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -92,5 +96,10 @@ export default {
 			}
 		}
 	},
+	variants: {
+		extend: {
+		  scale: ['hover'],
+		},
+	  },
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;

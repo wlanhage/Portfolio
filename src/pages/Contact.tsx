@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -14,9 +14,9 @@ const Contact = () => {
           <span className="text-primary text-sm font-medium px-4 py-1 rounded-full bg-primary/10">
             Get in Touch
           </span>
-          <h1 className="text-4xl font-bold">Let's Work Together</h1>
+          <h1 className="text-4xl font-bold">Currently open to new opportunities</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind? Let's discuss how we can bring your ideas to life
+            Have a project in mind? Reach out and let's discuss!
           </p>
         </div>
 
@@ -32,25 +32,22 @@ const Contact = () => {
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <Mail className="text-primary" />
-                  <span>hello@example.com</span>
+                  <span>Lanhagew@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Phone className="text-primary" />
-                  <span>+1 (555) 123-4567</span>
+                  <Github className="text-primary" />
+                  <span>github.com/lanhage</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Linkedin className="text-primary" />
+                  <span>linkedin.com/in/lanhage</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <MapPin className="text-primary" />
-                  <span>San Francisco, CA</span>
+                  <span>Gothenburg/Oslo, Sweden/Norway</span>
                 </div>
-              </div>
-            </div>
-
-            <div className="glass-card p-6 rounded-xl space-y-4">
-              <h3 className="font-semibold">Office Hours</h3>
-              <div className="space-y-2 text-muted-foreground">
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
+                <div className="flex items-center space-x-4">
+                </div>
               </div>
             </div>
           </motion.div>

@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Code, Database, Github, Paintbrush } from "lucide-react";
 
 const stats = [
-  { label: "Years Experience", value: "12+" },
-  { label: "Projects Completed", value: "46+" },
+  { label: "Years of universal study", value: "5" },
+  { label: "Years of developing", value: "2+" },
   { label: "Worldwide Clients", value: "20+" }
 ];
 
@@ -53,9 +53,9 @@ const About = () => {
           <span className="text-primary text-sm font-medium px-4 py-1 rounded-full bg-primary/10">
             About Me
           </span>
-          <h1 className="text-4xl font-bold">Passionate Developer</h1>
+          <h1 className="text-4xl font-bold">William Lanhage</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Crafting digital experiences with precision and creativity
+            Creating digital artifacts with precision and creativity
           </p>
         </div>
 
@@ -83,10 +83,13 @@ const About = () => {
           >
             <h2 className="text-2xl font-semibold">My Journey</h2>
             <p className="text-muted-foreground">
-              With over a decade of experience in software development, I've had the privilege of working with amazing clients and teams around the world. My passion lies in creating intuitive and engaging user experiences that make a difference.
+              During my bachelors degree in Information Technology, with focus on communication and design, I had courses in HTML, CSS and JS which I found highly interesting. During my intern at Sigma Technology I spent time with developers and realised that the courses in dev were the most exciting, this led to me applying for the web developers program at Yrgo.
             </p>
             <p className="text-muted-foreground">
-              I specialize in full-stack development with a focus on modern web technologies and best practices. My approach combines technical expertise with creative problem-solving to deliver exceptional results.
+              During the first few months I learned courses in basic web development inlcuding HTML, CSS, JS & PHP. I also had courses in design and UX/UI. Later on the focus was turned towards frameworks such as React, WP and Laravel. At the same time we also spent time learning other technologies like databases with SQL, design patterns and CMS systems like Sanity. The education is more aimed at front end but we have also covered classes in C# and NodeJs. 
+            </p>
+            <p className="text-muted-foreground">
+              For my last 6 months of the education I will be spending time as an intern. I landed an internship at Gothia Digital Solutions, in Gothenburg, where I mainly work in the front end. As Gothia Digital uses Angular in the front end solution, which I had never prior used, I therefore spent my final examination project in school building an API visualizer in Angular.
             </p>
           </motion.div>
 
