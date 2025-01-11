@@ -44,9 +44,7 @@ const Projects = () => {
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Explore my latest work and technical achievements
           </p>
-          <Link to="/add-project" className="flex items-center justify-center p-2 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
-            <PlusCircle className="w-6 h-6" />
-          </Link>
+          
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
