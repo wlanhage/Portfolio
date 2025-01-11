@@ -2,19 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ExternalLink, Github, PlusCircle } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle,} from "@/components/ui/card";
+import { sanityClient } from "../../client";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Projects = () => {
   const { data: projects, isLoading } = useQuery({
     queryKey: ["projects"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("projects")
-        .select("*")
-        .order("created_at", { ascending: false });
-      
-      if (error) throw error;
+      const query = '*[_type == "project"] | order(_createdAt desc)';
+      const data = await sanityClient.fetch(query);
       return data;
     },
   });
@@ -28,7 +24,6 @@ const Projects = () => {
   }
 
   return (
-
     <div className="min-h-screen p-8 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -44,22 +39,21 @@ const Projects = () => {
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Explore my latest work and technical achievements
           </p>
-          
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects?.map((project) => (
             <motion.div
-              key={project.id}
+              key={project._id}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <Link to={`/projects/${project.id}`}>
+              <Link to={`/projects/${project._id}`}>
                 <Card className="glass-card hover-scale overflow-hidden">
                   <div className="aspect-video overflow-hidden">
                     <img
-                      src={project.image_url}
+                      src={project.imageUrl}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     />
@@ -80,9 +74,9 @@ const Projects = () => {
                       ))}
                     </div>
                     <div className="flex gap-4">
-                      {project.live_url && (
+                      {project.liveUrl && (
                         <a
-                          href={project.live_url}
+                          href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 text-sm text-primary hover:text-primary/80"
@@ -91,9 +85,9 @@ const Projects = () => {
                           Live Demo
                         </a>
                       )}
-                      {project.github_url && (
+                      {project.githubUrl && (
                         <a
-                          href={project.github_url}
+                          href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 text-sm text-primary hover:text-primary/80"

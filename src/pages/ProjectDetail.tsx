@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { sanityClient } from "../../client";
 import { Button } from "@/components/ui/button";
 
 const ProjectDetail = () => {
@@ -11,13 +11,9 @@ const ProjectDetail = () => {
   const { data: project, isLoading } = useQuery({
     queryKey: ["project", id],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("projects")
-        .select("*")
-        .eq("id", id)
-        .single();
-      
-      if (error) throw error;
+      const query = `*[_type == "project" && _id == $id][0]`;
+      const params = { id };
+      const data = await sanityClient.fetch(query, params);
       return data;
     },
   });
@@ -61,17 +57,15 @@ const ProjectDetail = () => {
 
         <div className="glass-card rounded-xl overflow-hidden">
           <img
-            src={project.image_url}
+            src={project.imageUrl}
             alt={project.title}
             className="w-full h-[400px] object-cover"
           />
-          
           <div className="p-8 space-y-6">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold">{project.title}</h1>
               <p className="text-lg text-muted-foreground">{project.description}</p>
             </div>
-
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <span
@@ -82,11 +76,10 @@ const ProjectDetail = () => {
                 </span>
               ))}
             </div>
-
             <div className="flex gap-4">
-              {project.live_url && (
+              {project.liveUrl && (
                 <a
-                  href={project.live_url}
+                  href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-primary hover:text-primary/80"
@@ -95,9 +88,9 @@ const ProjectDetail = () => {
                   View Live Demo
                 </a>
               )}
-              {project.github_url && (
+              {project.githubUrl && (
                 <a
-                  href={project.github_url}
+                  href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-primary hover:text-primary/80"
