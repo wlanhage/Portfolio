@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ExternalLink, Github, PlusCircle } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { sanityClient } from "../../client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -23,6 +23,13 @@ const Projects = () => {
     );
   }
 
+  const truncateText = (text: string, maxLength: number) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.substring(0, maxLength) + '...';
+  };
+
   return (
     <div className="min-h-screen p-8 max-w-7xl mx-auto">
       <motion.div
@@ -31,14 +38,16 @@ const Projects = () => {
         transition={{ duration: 0.5 }}
         className="space-y-12"
       >
-        <div className="text-center space-y-4">
-          <span className="text-primary text-sm font-medium px-4 py-1 rounded-full bg-primary/10">
-            Portfolio
-          </span>
-          <h1 className="text-4xl font-bold">Featured Projects</h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explore my latest work and technical achievements
-          </p>
+        <div className="flex justify-between items-center">
+          <div className="text-center space-y-4">
+            <span className="text-primary text-sm font-medium px-4 py-1 rounded-full bg-primary/10">
+              Portfolio
+            </span>
+            <h1 className="text-4xl font-bold">Featured Projects</h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Explore my latest work and technical achievements
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -53,14 +62,14 @@ const Projects = () => {
                 <Card className="glass-card hover-scale overflow-hidden">
                   <div className="aspect-video overflow-hidden">
                     <img
-                      src={project.imageUrl}
-                      alt={project.title}
+                      src={project.image.asset.url}
+                      alt={project.image.alt}
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     />
                   </div>
                   <CardHeader>
                     <CardTitle>{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                    <CardDescription>{truncateText(project.description, 160)}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -74,9 +83,9 @@ const Projects = () => {
                       ))}
                     </div>
                     <div className="flex gap-4">
-                      {project.liveUrl && (
+                      {project.live_url && (
                         <a
-                          href={project.liveUrl}
+                          href={project.live_url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 text-sm text-primary hover:text-primary/80"
@@ -85,9 +94,9 @@ const Projects = () => {
                           Live Demo
                         </a>
                       )}
-                      {project.githubUrl && (
+                      {project.github_url && (
                         <a
-                          href={project.githubUrl}
+                          href={project.github_url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 text-sm text-primary hover:text-primary/80"

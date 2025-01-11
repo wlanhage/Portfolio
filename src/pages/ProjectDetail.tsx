@@ -57,8 +57,8 @@ const ProjectDetail = () => {
 
         <div className="glass-card rounded-xl overflow-hidden">
           <img
-            src={project.imageUrl}
-            alt={project.title}
+            src={project.image.asset.url}
+            alt={project.image.alt}
             className="w-full h-[400px] object-cover"
           />
           <div className="p-8 space-y-6">
@@ -77,9 +77,9 @@ const ProjectDetail = () => {
               ))}
             </div>
             <div className="flex gap-4">
-              {project.liveUrl && (
+              {project.live_url && (
                 <a
-                  href={project.liveUrl}
+                  href={project.live_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-primary hover:text-primary/80"
@@ -88,9 +88,9 @@ const ProjectDetail = () => {
                   View Live Demo
                 </a>
               )}
-              {project.githubUrl && (
+              {project.github_url && (
                 <a
-                  href={project.githubUrl}
+                  href={project.github_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-primary hover:text-primary/80"

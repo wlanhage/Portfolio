@@ -1,6 +1,8 @@
 import React from 'react';
 import { Mail, Twitter, Instagram, Dribbble, Facebook, Github, Linkedin } from 'lucide-react';
 import MainNavbar from '@/wComponents/mainNavbar';
+import byline from './imgs/byline.jpg';
+
 
 import { Link } from "react-router-dom";
 
@@ -17,7 +19,9 @@ const Index = () => {
           <div className="bg-white rounded-3xl p-6 w-full lg:w-96">
             <div className="relative">
               <div className="bg-orange-600 rounded-2xl overflow-hidden mb-4">
-                <div className="aspect-square bg-black"></div>
+                <div className="aspect-square">
+                  <img src="/byline.jpg" alt="William Lanhage" className="object-cover" />
+                </div>
               </div>
               <h2 className="text-2xl font-bold text-black mb-2">WILLIAM LANHAGE</h2>
               <p className="text-gray-600 mb-6">A web developers student, exciting about getting into the field of software development Always keeping track of the latest trends and the hottest topic in the area</p>
@@ -42,7 +46,7 @@ const Index = () => {
             {/* Stats */}
             <div className="flex gap-12 mb-12">
               <div>
-                <h3 className="text-4xl font-bold text-white mb-2">+12</h3>
+                <h3 className="text-4xl font-bold text-white mb-2">5</h3>
                 <p className="text-gray-400 text-sm">YEARS OF<br />EXPERIENCE</p>
               </div>
               <div>

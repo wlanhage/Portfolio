@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Database, Github, Paintbrush } from "lucide-react";
+import { Code, Database, Github, Paintbrush, BookOpenCheck } from "lucide-react";
 
 const stats = [
   { label: "Years of universal study", value: "5" },
@@ -36,6 +36,14 @@ const skillCategories = [
     icon: <Paintbrush className="w-5 h-5" />,
     skills: [
       "Adobe Photoshop", "Adobe Illustrator", "Adobe InDesign"
+    ]
+  },
+  {
+    title: "Competencies",
+    icon: <BookOpenCheck className="w-5 h-5" />,
+    skills: [
+      "Web Accessibility" ,"UX/UI Design", "Responsive Design",
+      "SEO", "Agile methods", "Scrum"
     ]
   }
 ];
@@ -89,7 +97,7 @@ const About = () => {
               During the first few months I learned courses in basic web development inlcuding HTML, CSS, JS & PHP. I also had courses in design and UX/UI. Later on the focus was turned towards frameworks such as React, WP and Laravel. At the same time we also spent time learning other technologies like databases with SQL, design patterns and CMS systems like Sanity. The education is more aimed at front end but we have also covered classes in C# and NodeJs. 
             </p>
             <p className="text-muted-foreground">
-              For my last 6 months of the education I will be spending time as an intern. I landed an internship at Gothia Digital Solutions, in Gothenburg, where I mainly work in the front end. As Gothia Digital uses Angular in the front end solution, which I had never prior used, I therefore spent my final examination project in school building an API visualizer in Angular.
+              For my last 6 months of the education I will be spending time as an intern. I landed an internship at Gothia Digital Solutions, in Gothenburg, where I mainly work in the front end. As Gothia Digital uses Angular in the front end solution, which I had never prior used, I spent my final examination project in school building an API visualizer in Angular.
             </p>
           </motion.div>
 
