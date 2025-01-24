@@ -38,9 +38,9 @@ const Projects = () => {
         transition={{ duration: 0.5 }}
         className="space-y-12"
       >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-center items-center">
           <div className="text-center space-y-4">
-            <span className="text-primary text-sm font-medium px-4 py-1 rounded-full bg-primary/10">
+            <span className="text-primary text-sm font-medium px-4 py-1 rounded-full bg-primary/10 mx-auto">
               Portfolio
             </span>
             <h1 className="text-4xl font-bold">Featured Projects</h1>

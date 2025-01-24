@@ -2,16 +2,17 @@ import React from 'react';
 import { Mail, Twitter, Instagram, Dribbble, Facebook, Github, Linkedin } from 'lucide-react';
 import MainNavbar from '@/wComponents/mainNavbar';
 import byline from './imgs/byline.jpg';
+import SBG from './imgs/SBG.png';
 
 
 import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className=' w-full h-full'>
+    <div className=' w-screen h-screen-minus-500'>
       {/* Navbar */}
      
-      <div className="min-h-screen max-w-[1300px] mx-auto">
+      <div className="min-h-screen max-w-[1300px] mx-auto p-6">
 
         {/* Main Content */}
         <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -24,7 +25,7 @@ const Index = () => {
                 </div>
               </div>
               <h2 className="text-2xl font-bold text-black mb-2">WILLIAM LANHAGE</h2>
-              <p className="text-gray-600 mb-6">A web developers student, exciting about getting into the field of software development Always keeping track of the latest trends and the hottest topic in the area</p>
+              <p className="text-gray-600 mb-6">A web developers student, excited about evolving in the field of software development. Always keeping track of the latest trends and the hottest topic in the area.</p>
               
               {/* Social Icons */}
               <div className="flex gap-4">
@@ -36,7 +37,8 @@ const Index = () => {
           </div>
 
           {/* Right Content */}
-          <div className="flex-1">
+          <div className="flex-1 w-full h-full lg:w-1/3 flex justify-between flex-col">
+          <div className='h-full w-full'>
             <h1 className="text-6xl font-bold text-white mb-2">WEB</h1>
             <h1 className="text-6xl font-bold text-gray-700 mb-6">DEVELOPER</h1>
             <p className="text-gray-400 mb-12 max-w-2xl">
@@ -58,12 +60,16 @@ const Index = () => {
                 <p className="text-gray-400 text-sm">WORLDWIDE<br />CLIENTS</p>
               </div>
             </div>
+            </div>
 
             {/* Skill Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link to="/projects">
               <div className="bg-orange-500 p-6 rounded-xl transform transition-transform duration-300 hover:scale-105 cursor-pointer">
-                <h3 className="text-white text-xl font-bold mb-8">CURRENT OCUPATION:<br />FRONT END INTERN  AT <br />GOTHIA DIGITAL SOLUTIONS</h3>
+                <div className="flex justify-between h-full w-full flex-col">
+                  <h3 className="text-white text-xl font-bold mb-8">CURRENT OCUPATION:</h3>
+                  <h2 className="text-white text-xl font-bold mb-8">INTERN</h2>
+                </div>
                 <div className="flex justify-end">
                   <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 12h14M12 5l7 7-7 7" />

@@ -65,6 +65,11 @@ const ProjectDetail = () => {
             <div className="space-y-4">
               <h1 className="text-4xl font-bold">{project.title}</h1>
               <p className="text-lg text-muted-foreground">{project.description}</p>
+              {project.learnings.map((learning) => (
+                <p key={learning} className="text-sm text-muted-foreground">
+                {learning}
+                </p>
+              ))}
             </div>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (

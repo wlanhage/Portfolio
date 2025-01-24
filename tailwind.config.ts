@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			height: {
+				'screen-minus-500': 'calc(100vh - 500px)',
+			},
 			scale: {
 				'110': '1.1',
 				'105': '1.05'
