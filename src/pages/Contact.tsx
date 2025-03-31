@@ -1,9 +1,11 @@
+import { Cursor } from "@/components/CustomCursor";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 
 const Contact = () => {
   return (
     <div className="min-h-screen p-8 max-w-7xl mx-auto">
+      <Cursor />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -44,7 +46,7 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center space-x-4">
                   <MapPin className="text-primary" />
-                  <span>Gothenburg/Oslo, Sweden/Norway</span>
+                  <span>Gothenburg, Sweden</span>
                 </div>
                 <div className="flex items-center space-x-4">
                 </div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ExternalLink, Github } from "lucide-react";
 import { sanityClient } from "../../client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
+import { Cursor } from "@/components/CustomCursor";
 const Projects = () => {
   const { data: projects, isLoading } = useQuery({
     queryKey: ["projects"],
@@ -32,6 +32,7 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen p-8 max-w-7xl mx-auto">
+      <Cursor />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

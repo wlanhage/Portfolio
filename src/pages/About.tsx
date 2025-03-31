@@ -1,10 +1,11 @@
+import { Cursor } from "@/components/CustomCursor";
 import { motion } from "framer-motion";
 import { Code, Database, Github, Paintbrush, BookOpenCheck } from "lucide-react";
 
 const stats = [
   { label: "Years of universal study", value: "5" },
   { label: "Years of developing", value: "2+" },
-  { label: "Worldwide Clients", value: "20+" }
+  { label: "Open source projects", value: "10+" }
 ];
 
 const skillCategories = [
@@ -43,7 +44,7 @@ const skillCategories = [
     icon: <BookOpenCheck className="w-5 h-5" />,
     skills: [
       "Web Accessibility" ,"UX/UI Design", "Responsive Design",
-      "SEO", "Agile methods", "Scrum"
+      "SEO", "Agile methods", "Scrum", "Azure DevOps"
     ]
   }
 ];
@@ -51,6 +52,7 @@ const skillCategories = [
 const About = () => {
   return (
     <div className="min-h-screen p-8 max-w-7xl mx-auto">
+      <Cursor />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -62,9 +64,6 @@ const About = () => {
             About Me
           </span>
           <h1 className="text-4xl font-bold">William Lanhage</h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Creating digital artifacts with precision and creativity
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -97,7 +96,7 @@ const About = () => {
               During the first few months I learned courses in basic web development inlcuding HTML, CSS, JS & PHP. I also had courses in design and UX/UI. Later on the focus was turned towards frameworks such as React, WP and Laravel. At the same time we also spent time learning other technologies like databases with SQL, design patterns and CMS systems like Sanity. The education is more aimed at front end but we have also covered classes in C# and NodeJs. 
             </p>
             <p className="text-muted-foreground">
-              For my last 6 months of the education I will be spending time as an intern. I landed an internship at Gothia Digital Solutions, in Gothenburg, where I mainly work in the front end. As Gothia Digital uses Angular in the front end solution, which I had never prior used, I spent my final examination project in school building an API visualizer in Angular.
+              For my last 6 months of the education I am spending time as an intern. I landed an internship at Gothia Digital Solutions, in Gothenburg, where I mainly work in the front end but I am also given the chance of exploring the backend. Here I work with Angular and C# as the tech stack, using Microsoft Azure with SQL-based databases. I also work with Azure DevOps for version control, task management, and CI/CD pipelines, using features like repositories, boards, and pipelines to streamline development and deployment.
             </p>
           </motion.div>
 
