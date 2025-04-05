@@ -4,12 +4,6 @@ import { Mail, Twitter, Instagram, Dribbble, Facebook, Github, Linkedin } from '
 import MainNavbar from '@/wComponents/mainNavbar';
 import byline from './imgs/byline.jpg';
 import SBG from './imgs/SBG.png';
-import waveryFingerprint from '../imgs/wavey-fingerprint.svg';
-import sunTornado from '../imgs/sun-tornado.svg';
-import protrudingSquares from '../imgs/protruding-squares.svg';
-import rosePetals from '../imgs/rose-petals.svg';
-import largeTriangles from '../imgs/large-triangles.svg';
-import liquidCheese from '../imgs/liquid-cheese.svg';
 import Cursor from '@/components/CustomCursor';
 
 import { Link } from "react-router-dom";
@@ -163,7 +157,7 @@ const Index = () => {
             variants={profileVariants}
             className="bg-white rounded-3xl p-6 w-full lg:w-96 relative overflow-hidden"
             style={{
-              backgroundImage: `url(${liquidCheese})`,
+              backgroundImage: `url('/liquid-cheese.svg')`,
               backgroundSize: 'cover',
             }}
             whileHover={{
@@ -354,7 +348,7 @@ const Index = () => {
                   whileHover="hover"
                   className="bg-orange-500 p-6 rounded-xl cursor-pointer relative overflow-hidden"
                   style={{
-                    backgroundImage: `url(${waveryFingerprint})`,
+                    backgroundImage: `url('/wavey-fingerprint.svg')`,
                     backgroundSize: 'cover',
                     backgroundBlendMode: 'soft-light'
                   }}
@@ -414,7 +408,7 @@ const Index = () => {
                 whileHover="hover"
                 className="bg-lime-400 p-6 rounded-xl cursor-pointer relative overflow-hidden"
                 style={{
-                  backgroundImage: `url(${largeTriangles})`,
+                  backgroundImage: `url('/large-triangles.svg')`,
                   backgroundSize: 'cover',
                 }}
               >

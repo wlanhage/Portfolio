@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
-import { sanityClient } from "../../client";
+import { sanityClient, urlFor } from "../../client";
 import { Button } from "@/components/ui/button";
 
 const ProjectDetail = () => {
@@ -57,7 +57,7 @@ const ProjectDetail = () => {
 
         <div className="glass-card rounded-xl overflow-hidden">
           <img
-            src={project.image.asset.url}
+            src={urlFor(project.image).width(1200).url()}
             alt={project.image.alt}
             className="w-full h-[400px] object-cover"
           />

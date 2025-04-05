@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ExternalLink, Github } from "lucide-react";
-import { sanityClient } from "../../client";
+import { sanityClient, urlFor } from "../../client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Cursor } from "@/components/CustomCursor";
 const Projects = () => {
@@ -45,9 +45,6 @@ const Projects = () => {
               Portfolio
             </span>
             <h1 className="text-4xl font-bold">Featured Projects</h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Explore my latest work and technical achievements
-            </p>
           </div>
         </div>
 
@@ -63,7 +60,7 @@ const Projects = () => {
                 <Card className="glass-card hover-scale overflow-hidden">
                   <div className="aspect-video overflow-hidden">
                     <img
-                      src={project.image.asset.url}
+                      src={urlFor(project.image).width(800).url()}
                       alt={project.image.alt}
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     />
