@@ -20,6 +20,11 @@ export default {
         of: [{ type: 'string' }],
       },
       {
+        name: 'after_project',
+        title: 'Thoughts on the project / further improvements',
+        type: 'text',
+      },
+      {
         name: 'github_url',
         title: 'GitHub URL',
         type: 'url',
