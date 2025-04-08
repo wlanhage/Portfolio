@@ -5,6 +5,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { sanityClient, urlFor } from "../../client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Cursor } from "@/components/CustomCursor";
+import Loader from "@/wComponents/loader";
 const Projects = () => {
   const { data: projects, isLoading } = useQuery({
     queryKey: ["projects"],
@@ -18,7 +19,7 @@ const Projects = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-primary">Loading projects...</div>
+        <Loader />
       </div>
     );
   }
@@ -67,6 +68,7 @@ const Projects = () => {
                   </div>
                   <CardHeader>
                     <CardTitle>{project.title}</CardTitle>
+                    <p className="text-xs text-muted-foreground">{project.time}</p>
                     <CardDescription>{truncateText(project.description, 160)}</CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -102,6 +104,7 @@ const Projects = () => {
                           <Github size={16} />
                           Source Code
                         </a>
+                        
                       )}
                     </div>
                   </CardContent>

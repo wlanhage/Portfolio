@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { sanityClient, urlFor } from "../../client";
 import { Button } from "@/components/ui/button";
-
+import Loader from "@/wComponents/loader";
 const ProjectDetail = () => {
   const { id } = useParams();
 
@@ -21,7 +21,7 @@ const ProjectDetail = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-primary">Loading project...</div>
+        <Loader />
       </div>
     );
   }
@@ -64,12 +64,23 @@ const ProjectDetail = () => {
           <div className="p-8 space-y-6">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold">{project.title}</h1>
-              <p className="text-lg text-muted-foreground">{project.description}</p>
-              {project.learnings.map((learning) => (
-                <p key={learning} className="text-sm text-muted-foreground">
-                {learning}
-                </p>
-              ))}
+              <p className="text-sm text-gray-500">{project.time}</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <p className="text-lg text-muted-foreground">{project.description}</p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold">Main takeaways</h3>
+                  {project.learnings.map((learning) => {
+                    const [learningTitle, learningDescription] = learning.split(':').map(str => str.trim());
+                    return (
+                      <p key={learning} className="text-sm text-muted-foreground mb-2">
+                        <span className="font-bold text-primary">{learningTitle}:</span> {learningDescription}
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
